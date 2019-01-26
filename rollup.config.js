@@ -1,65 +1,51 @@
-const babel = require('rollup-plugin-babel');
-const changeCase = require('change-case');
-const commonjs = require('rollup-plugin-commonjs');
-const createBanner = require('create-banner');
-const nodeResolve = require('rollup-plugin-node-resolve');
-const { uglify } = require('rollup-plugin-uglify');
-const pkg = require('./package');
+import babel from 'rollup-plugin-babel';
+import changeCase from 'change-case';
+import commonjs from 'rollup-plugin-commonjs';
+import createBanner from 'create-banner';
+import nodeResolve from 'rollup-plugin-node-resolve';
+import pkg from './package.json';
 
+const name = changeCase.pascalCase(pkg.name);
+const data = {
+  year: '2019-present',
+};
 const banner = createBanner({
-  data: {
-    year: '2019-present',
-  },
+  data,
 });
-const plugins = [
-  nodeResolve(),
-  commonjs(),
-  babel(),
-];
 
-module.exports = [
-  {
-    input: 'src/index.js',
-    output: [
-      {
-        banner,
-        name: changeCase.pascalCase(pkg.name),
-        file: `dist/${pkg.name}.js`,
-        format: 'umd',
-      },
-      {
-        banner,
-        file: `dist/${pkg.name}.common.js`,
-        format: 'cjs',
-      },
-      {
-        banner,
-        file: `dist/${pkg.name}.esm.js`,
-        format: 'esm',
-      },
-    ],
-    plugins,
-  },
-  {
-    input: 'src/index.js',
-    output: {
+export default {
+  input: 'src/index.js',
+  output: [
+    {
+      banner,
+      name,
+      file: `dist/${pkg.name}.js`,
+      format: 'umd',
+    },
+    {
+      name,
       banner: createBanner({
+        data,
         template: 'inline',
-        data: {
-          year: '2019-present',
-        },
       }),
-      name: changeCase.pascalCase(pkg.name),
       file: `dist/${pkg.name}.min.js`,
       format: 'umd',
       compact: true,
     },
-    plugins: plugins.concat([
-      uglify({
-        output: {
-          comments: /^!/,
-        },
-      }),
-    ]),
-  },
-];
+    {
+      banner,
+      file: `dist/${pkg.name}.common.js`,
+      format: 'cjs',
+    },
+    {
+      banner,
+      file: `dist/${pkg.name}.esm.js`,
+      format: 'esm',
+    },
+  ],
+  plugins: [
+    nodeResolve(),
+    commonjs(),
+    babel(),
+  ],
+};

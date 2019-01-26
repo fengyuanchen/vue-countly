@@ -4,6 +4,7 @@ const nodeResolve = require('rollup-plugin-node-resolve');
 const puppeteer = require('puppeteer');
 
 process.env.CHROME_BIN = puppeteer.executablePath();
+process.env.NODE_ENV = 'test';
 
 module.exports = (config) => {
   config.set({
