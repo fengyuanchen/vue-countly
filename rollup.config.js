@@ -1,51 +1,43 @@
-import babel from 'rollup-plugin-babel';
-import changeCase from 'change-case';
-import commonjs from 'rollup-plugin-commonjs';
 import createBanner from 'create-banner';
-import nodeResolve from 'rollup-plugin-node-resolve';
+import typescript from 'rollup-plugin-typescript2';
+import { pascalCase } from 'change-case';
+import { terser } from 'rollup-plugin-terser';
 import pkg from './package.json';
 
-const name = changeCase.pascalCase(pkg.name);
-const data = {
-  year: '2019-present',
-};
+const name = pascalCase(pkg.name.replace(/^.+\//, ''));
 const banner = createBanner({
-  data,
+  data: {
+    year: '2019-present',
+  },
+  template: 'inline',
 });
 
-export default {
-  input: 'src/index.js',
-  output: [
-    {
+export default ['umd', 'esm'].map((format) => ({
+  input: 'src/index.ts',
+  output: ['development', 'production'].map((mode) => {
+    const output = {
       banner,
+      format,
       name,
-      file: `dist/${pkg.name}.js`,
-      format: 'umd',
-    },
-    {
-      name,
-      banner: createBanner({
-        data,
-        template: 'inline',
-      }),
-      file: `dist/${pkg.name}.min.js`,
-      format: 'umd',
-      compact: true,
-    },
-    {
-      banner,
-      file: `dist/${pkg.name}.common.js`,
-      format: 'cjs',
-    },
-    {
-      banner,
-      file: `dist/${pkg.name}.esm.js`,
-      format: 'esm',
-    },
-  ],
+      file: pkg.main,
+    };
+
+    if (format === 'esm') {
+      output.file = pkg.module;
+    }
+
+    if (mode === 'production') {
+      output.compact = true;
+      output.file = output.file.replace(/(\.js)$/, '.min$1');
+      output.plugins = [
+        terser(),
+      ];
+    }
+
+    return output;
+  }),
+  external: Object.keys(pkg.peerDependencies),
   plugins: [
-    nodeResolve(),
-    commonjs(),
-    babel(),
+    typescript(),
   ],
-};
+}));
