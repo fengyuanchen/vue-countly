@@ -5,9 +5,6 @@ export default function VueCountly(
   Countly: Record<string, any>,
   options?: Record<string, any>,
 ): void {
-  app.provide('$Countly', Countly);
-  app.mixin({
-    inject: ['$Countly'],
-  });
+  app.config.globalProperties.$Countly = Countly;
   Countly.init(options);
 }
