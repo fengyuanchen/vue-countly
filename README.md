@@ -1,6 +1,6 @@
 # vue-countly
 
-[![Build Status](https://img.shields.io/github/workflow/status/fengyuanchen/vue-countly/ci/main.svg)](https://github.com/fengyuanchen/vue-countly/actions) [![Coverage Status](https://img.shields.io/codecov/c/github/fengyuanchen/vue-countly.svg)](https://codecov.io/gh/fengyuanchen/vue-countly) [![Downloads](https://img.shields.io/npm/dm/vue-countly.svg)](https://www.npmjs.com/package/vue-countly) [![Version](https://img.shields.io/npm/v/vue-countly.svg)](https://www.npmjs.com/package/vue-countly) [![Gzip Size](https://img.shields.io/bundlephobia/minzip/vue-countly.svg)](https://unpkg.com/vue-countly/dist/vue-countly.js)
+[![Coverage Status](https://img.shields.io/codecov/c/github/fengyuanchen/vue-countly.svg)](https://codecov.io/gh/fengyuanchen/vue-countly) [![Downloads](https://img.shields.io/npm/dm/vue-countly.svg)](https://www.npmjs.com/package/vue-countly) [![Version](https://img.shields.io/npm/v/vue-countly/next.svg)](https://www.npmjs.com/package/vue-countly) [![Gzip Size](https://img.shields.io/bundlephobia/minzip/vue-countly.svg)](https://unpkg.com/vue-countly/dist/vue-countly.js)
 
 > [Countly](https://resources.count.ly/docs/countly-sdk-for-web) plugin for Vue 3.
 
@@ -20,7 +20,7 @@ dist/
 ### Installation
 
 ```shell
-npm install vue countly-sdk-web vue-countly
+npm install vue@next countly-sdk-web vue-countly@next
 ```
 
 In browser:
