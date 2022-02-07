@@ -1,13 +1,11 @@
 # vue-countly
 
-[![Build Status](https://travis-ci.org/fengyuanchen/vue-countly.svg)](https://travis-ci.org/fengyuanchen/vue-countly) [![Coverage Status](https://img.shields.io/codecov/c/github/fengyuanchen/vue-countly.svg)](https://codecov.io/gh/fengyuanchen/vue-countly) [![Downloads](https://img.shields.io/npm/dm/vue-countly.svg)](https://www.npmjs.com/package/vue-countly) [![Version](https://img.shields.io/npm/v/vue-countly.svg)](https://www.npmjs.com/package/vue-countly)
-
-> [Countly](https://resources.count.ly/docs/countly-sdk-for-web) plugin for [Vue.js](https://vuejs.org).
+> [Countly](https://resources.count.ly/docs/countly-sdk-for-web) plugin for [Vue 2](https://v2.vuejs.org).
 
 ## Installation
 
 ```shell
-npm install --save-dev vue countly-sdk-web vue-countly
+npm install --save-dev vue@2 countly-sdk-web@21 vue-countly@1
 ```
 
 In browser:
