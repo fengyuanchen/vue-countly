@@ -1,8 +1,8 @@
 # vue-countly
 
-[![Coverage Status](https://img.shields.io/codecov/c/github/fengyuanchen/vue-countly.svg)](https://codecov.io/gh/fengyuanchen/vue-countly) [![Downloads](https://img.shields.io/npm/dm/vue-countly.svg)](https://www.npmjs.com/package/vue-countly) [![Version](https://img.shields.io/npm/v/vue-countly/next.svg)](https://www.npmjs.com/package/vue-countly) [![Gzip Size](https://img.shields.io/bundlephobia/minzip/vue-countly.svg)](https://unpkg.com/vue-countly/dist/vue-countly.js)
+[![Coverage Status](https://img.shields.io/codecov/c/github/fengyuanchen/vue-countly.svg)](https://codecov.io/gh/fengyuanchen/vue-countly) [![Downloads](https://img.shields.io/npm/dm/vue-countly.svg)](https://www.npmjs.com/package/vue-countly) [![Version](https://img.shields.io/npm/v/vue-countly.svg)](https://www.npmjs.com/package/vue-countly) [![Gzip Size](https://img.shields.io/bundlephobia/minzip/vue-countly.svg)](https://unpkg.com/vue-countly/dist/vue-countly.js)
 
-> [Countly](https://resources.count.ly/docs/countly-sdk-for-web) plugin for Vue 3.
+> [Countly](https://resources.count.ly/docs/countly-sdk-for-web) plugin for Vue 3. For Vue 2, check out the [`v1`](https://github.com/fengyuanchen/vue-countly/tree/v1) branch.
 
 ## Main files
 
@@ -19,16 +19,30 @@ dist/
 
 ### Installation
 
+Using npm:
+
 ```shell
-npm install vue@next countly-sdk-web vue-countly@next
+npm install vue@3 countly-sdk-web@21 vue-countly@2
 ```
 
-In browser:
+Using pnpm:
+
+```shell
+pnpm add vue@3 countly-sdk-web@21 vue-countly@2
+```
+
+Using Yarn:
+
+```shell
+yarn add vue@3 countly-sdk-web@21 vue-countly@2
+```
+
+Using CDN:
 
 ```html
-<script src="/path/to/vue.js"></script><!-- Vue.js is required -->
-<script src="/path/to/countly.js"></script><!-- Countly is required -->
-<script src="/path/to/vue-countly.js"></script>
+<script src="https://unpkg.com/vue@3"></script><!-- Vue.js is required -->
+<script src="https://unpkg.com/countly-sdk-web@21"></script><!-- Countly is required -->
+<script src="https://unpkg.com/vue-countly@2"></script>
 ```
 
 ### Usage
