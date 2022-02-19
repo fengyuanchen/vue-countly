@@ -4,7 +4,7 @@
 
 > [Countly](https://resources.count.ly/docs/countly-sdk-for-web) plugin for Vue 3. For Vue 2, check out the [`v1`](https://github.com/fengyuanchen/vue-countly/tree/v1) branch.
 
-## Main files
+## Main npm package files
 
 ```text
 dist/
